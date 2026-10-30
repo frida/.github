@@ -12,7 +12,7 @@ researchers. Learn more at [frida.re](https://frida.re).
 
 ## Main repositories
 
-- [frida](https://github.com/frida/frida): the umbrella repository, start here to build from source
+- [frida](https://github.com/frida/frida): releases, and the umbrella repository tying them together
 - [frida-gum](https://github.com/frida/frida-gum): instrumentation engine and the GumJS runtime
 - [frida-core](https://github.com/frida/frida-core): injection, sessions, and the compiler
 - [frida-tools](https://github.com/frida/frida-tools): CLI tools such as `frida`, `frida-trace`, and `frida-pm`
@@ -28,3 +28,17 @@ Language bindings:
 [QML](https://github.com/frida/frida-qml) ·
 [Pharo](https://github.com/frida/frida-pharo) ·
 [Browser](https://github.com/frida/frida-web-client)
+
+## Building from source
+
+Clone the repository you want and run `make`. Run `./configure` first to pick
+options or to cross-compile. Dependencies are fetched through Meson wraps, so a
+language binding like [frida-python](https://github.com/frida/frida-python)
+pulls in frida-core by itself.
+
+For frida-server, frida-portal, frida-inject, frida-gadget, and the other
+binaries, clone [frida-core](https://github.com/frida/frida-core) and run
+`make`.
+
+Out-of-tree builds work like autotools: run the repository's `configure` from
+the build directory you want. Run from the repository root, it uses `./build`.
